@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro';
+import styled from "styled-components/macro";
 
 export const PageWrapper = styled.div`
   height: 100vh;
@@ -8,5 +8,5 @@ export const PageWrapper = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   background-color: rgb(94, 193, 171);
-  background-image: url('./background.png'); 
-`
+  background-image: url("./background.png");
+`;
