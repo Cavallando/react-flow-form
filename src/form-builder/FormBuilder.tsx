@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Step } from "app/utils/steps";
+import { Step } from "utils/steps";
 import {
   FormBuilderWrapper,
   StepWrapper,
@@ -9,6 +9,7 @@ import {
 import { Section, Question } from "./form-sections";
 import { FieldValues, useForm } from "react-hook-form";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
+import { PageWrapper } from "./styled";
 
 type FormBuilderProps<FormValues extends FieldValues> = {
   data: Step<FormValues>[];
@@ -81,38 +82,40 @@ function FormBuilder<FormValues extends FieldValues>({
   const currentStep = data[currentIndexForm];
 
   return (
-    <FormBuilderWrapper>
-      <StepWrapper>
-        <SwitchTransition mode="out-in">
-          <CSSTransition
-            key={currentIndexForm}
-            addEndListener={(node, done) => {
-              node.addEventListener("transitionend", done, false);
-            }}
-            classNames={classNameState}
-          >
-            {generateFormStep(currentStep)}
-          </CSSTransition>
-        </SwitchTransition>
-      </StepWrapper>
+    <PageWrapper>
+      <FormBuilderWrapper>
+        <StepWrapper>
+          <SwitchTransition mode="out-in">
+            <CSSTransition
+              key={currentIndexForm}
+              addEndListener={(node, done) => {
+                node.addEventListener("transitionend", done, false);
+              }}
+              classNames={classNameState}
+            >
+              {generateFormStep(currentStep)}
+            </CSSTransition>
+          </SwitchTransition>
+        </StepWrapper>
 
-      <ArrowsWrapper show={currentStep.type === "question"}>
-        <ArrowsButton
-          onClick={() => setNewCurrentIndexForm(currentIndexForm - 1)}
-        >
-          <svg height="9" width="14">
-            <path d="M11.996 8.121l1.414-1.414L6.705 0 0 6.707l1.414 1.414 5.291-5.293z"></path>
-          </svg>
-        </ArrowsButton>
-        <ArrowsButton
-          onClick={() => setNewCurrentIndexForm(currentIndexForm + 1)}
-        >
-          <svg height="9" width="14">
-            <path d="M12.293.293l1.414 1.414L7 8.414.293 1.707 1.707.293 7 5.586z"></path>
-          </svg>
-        </ArrowsButton>
-      </ArrowsWrapper>
-    </FormBuilderWrapper>
+        <ArrowsWrapper show={currentStep.type === "question"}>
+          <ArrowsButton
+            onClick={() => setNewCurrentIndexForm(currentIndexForm - 1)}
+          >
+            <svg height="9" width="14">
+              <path d="M11.996 8.121l1.414-1.414L6.705 0 0 6.707l1.414 1.414 5.291-5.293z"></path>
+            </svg>
+          </ArrowsButton>
+          <ArrowsButton
+            onClick={() => setNewCurrentIndexForm(currentIndexForm + 1)}
+          >
+            <svg height="9" width="14">
+              <path d="M12.293.293l1.414 1.414L7 8.414.293 1.707 1.707.293 7 5.586z"></path>
+            </svg>
+          </ArrowsButton>
+        </ArrowsWrapper>
+      </FormBuilderWrapper>
+    </PageWrapper>
   );
 }
 

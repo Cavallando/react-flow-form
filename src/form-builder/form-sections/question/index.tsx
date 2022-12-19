@@ -4,7 +4,7 @@ import {
   Checkbox,
   Select,
   InputText,
-} from "app/form-builder/form-types";
+} from "form-builder/form-types";
 import { QuestionWrapper, AnswersWrapper, QuestionTitle } from "./styled";
 import { FieldValues, Path, UseFormReturn } from "react-hook-form";
 import { StepContent } from "../../../utils/steps";

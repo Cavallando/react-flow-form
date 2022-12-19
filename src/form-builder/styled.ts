@@ -6,6 +6,17 @@ export const FormBuilderWrapper = styled.div`
   overflow: hidden;
 `;
 
+export const PageWrapper = styled.div`
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgb(94, 193, 171);
+  background-image: url("./background.png");
+`;
+
 export const StepWrapper = styled.div`
   height: 100vh;
   width: 100vw;
@@ -66,7 +77,7 @@ export const ArrowsWrapper = styled.div<{ show: boolean }>`
   bottom: 25px;
   transition: all 0.3s ease;
   opacity: ${(props) => (props.show ? 1 : 0)};
-  visbility: ${(props) => (props.show ? "visible" : "hidden")};
+  visibility: ${(props) => (props.show ? "visible" : "hidden")};
 `;
 
 export const ArrowsButton = styled.button`

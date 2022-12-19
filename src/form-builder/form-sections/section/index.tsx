@@ -1,6 +1,6 @@
 import React from "react";
 import { SectionWrapper, Text } from "./styled";
-import { ButtonComp } from "app/form-builder/form-components";
+import { Button } from "form-builder/form-components";
 import { StepContent } from "../../../utils/steps";
 
 type SectionProps = {
@@ -20,7 +20,7 @@ const Section: React.FC<SectionProps> = ({
       {content.map((item, index) =>
         item.type === "text" ? <Text key={index}>{item.value}</Text> : undefined
       )}
-      {!hideNextButton && <ButtonComp onClick={onNextStep}>Sure</ButtonComp>}
+      {!hideNextButton && <Button onClick={onNextStep}>Sure</Button>}
     </SectionWrapper>
   );
 };
