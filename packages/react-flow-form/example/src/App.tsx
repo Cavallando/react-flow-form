@@ -1,53 +1,15 @@
-import { FieldValues, Path } from "react-hook-form";
+import React from "react";
+import { FormBuilder, Step } from "@cav/react-flow-form";
+// import { Step } from "../../lib/utils/steps";
 
-export type StepType = "section" | "question";
-export type StepContentType =
-  | "text"
-  | "radio-image"
-  | "checkbox"
-  | "input"
-  | "select";
-export type TextStep = { type: "text"; value: string };
-export type RadioImageStep = {
-  type: "radio-image";
-  values: {
-    value: string;
-    image: string;
-    label: string;
-  }[];
-};
-export type SelectStep = {
-  type: "select" | "checkbox";
-  values: {
-    value: string;
-    label: string;
-  }[];
-};
-export type InputStep = {
-  type: "input";
-  placeholder: string;
+type FormValues = {
+  field1: string;
+  field2: string;
+  field3: string;
+  field4: string;
 };
 
-export type StepContent = InputStep | SelectStep | RadioImageStep | TextStep;
-export type Step<FormValues extends FieldValues> = {
-  id: number;
-  type: StepType;
-  content: StepContent[];
-  title: string;
-  subtitle?: string;
-  formId?: Path<FormValues>;
-  hideNextButton?: boolean;
-  hidePrevButton?: boolean;
-};
-
-type TestForm = {
-  "1": string;
-  "2": string;
-  "3": string;
-  "4": string;
-};
-
-const stepsData: Step<TestForm>[] = [
+const steps: Step<FormValues>[] = [
   {
     id: 1,
     type: "section",
@@ -66,7 +28,7 @@ const stepsData: Step<TestForm>[] = [
   },
   {
     id: 2,
-    formId: "1",
+    formId: "field1",
     type: "question",
     title:
       "First off, are you using the product for business or personal use? *",
@@ -91,7 +53,7 @@ const stepsData: Step<TestForm>[] = [
   },
   {
     id: 3,
-    formId: "2",
+    formId: "field2",
     type: "question",
     title:
       "Great. What is the size of your company? This question is required. *",
@@ -122,7 +84,7 @@ const stepsData: Step<TestForm>[] = [
   },
   {
     id: 4,
-    formId: "3",
+    formId: "field3",
     type: "question",
     title:
       "And which type of industry do you work in? This question is required. *",
@@ -153,7 +115,7 @@ const stepsData: Step<TestForm>[] = [
   },
   {
     id: 5,
-    formId: "4",
+    formId: "field4",
     type: "question",
     title:
       "If you'd like us to follow up with you, please be sure to leave your email address below :)",
@@ -183,4 +145,12 @@ const stepsData: Step<TestForm>[] = [
   },
 ];
 
-export default stepsData;
+function App() {
+  return (
+    <div className="App">
+      <FormBuilder data={steps} />
+    </div>
+  );
+}
+
+export default App;

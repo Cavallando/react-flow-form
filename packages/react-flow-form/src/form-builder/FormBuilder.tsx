@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Step } from "../utils/steps";
+import { Step } from "./form-types/step";
 import {
   FormBuilderWrapper,
   StepWrapper,

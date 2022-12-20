@@ -2,7 +2,7 @@ import React from "react";
 import { RadioImage, Checkbox, Select, InputText } from "../../form-types";
 import { QuestionWrapper, AnswersWrapper, QuestionTitle } from "./styled";
 import { FieldValues, Path, UseFormReturn } from "react-hook-form";
-import { StepContent } from "../../../utils/steps";
+import { StepContent } from "../../form-types/step";
 
 type QuestionProps<FormValues extends FieldValues> = {
   content: StepContent[];

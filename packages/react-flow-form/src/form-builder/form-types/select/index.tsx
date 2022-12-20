@@ -6,7 +6,7 @@ import {
   UnpackNestedValue,
   UseFormReturn,
 } from "react-hook-form";
-import { SelectStep } from "../../../utils/steps";
+import { SelectStep } from "../step";
 import { SelectWrapper, InputSelect, OptionsWrapper, Option } from "./styled";
 
 // Hook
@@ -51,6 +51,7 @@ function Select<FormValues extends FieldValues>({
 }: SelectProps<FormValues>) {
   const selectRef = useRef<HTMLDivElement | null>(null);
   const [menuIsOpen, setMenuIsOpen] = useState(false);
+  // @ts-ignore
   const [itemChecked, setItemChecked] = useState(getValues(formId) || {});
 
   useOnClickOutside(selectRef, () => {
@@ -58,20 +59,24 @@ function Select<FormValues extends FieldValues>({
   });
 
   const handleChange = (option: SelectStep["values"]["0"]) => {
+    // @ts-ignore
     let valueSelected = getValues(formId);
     if (!valueSelected) {
+      // @ts-ignore
       valueSelected = {} as PathValue<FormValues, Path<FormValues>>;
     }
 
     if (valueSelected.value === option.value) {
       setItemChecked({});
       setValue(
+        // @ts-ignore
         formId,
         {} as UnpackNestedValue<PathValue<FormValues, Path<FormValues>>>
       );
     } else {
       setItemChecked(option);
       setValue(
+        // @ts-ignore
         formId,
         option as UnpackNestedValue<PathValue<FormValues, Path<FormValues>>>
       );

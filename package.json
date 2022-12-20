@@ -1,9 +1,10 @@
 {
-  "name": "cav",
-  "version": "0.1.0",
+  "name": "@cav/bucket",
+  "version": "0.0.0",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "packages/**/example"
   ],
   "dependencies": {
     "@types/jest": "^29.2.4",

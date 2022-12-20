@@ -4,11 +4,10 @@ import {
   FieldValues,
   Path,
   PathValue,
-  UnpackNestedValue,
   useFieldArray,
   UseFormReturn,
 } from "react-hook-form";
-import { SelectStep } from "../../../utils/steps";
+import { SelectStep } from "../step";
 import { CheckboxWrapper, CheckboxOption } from "./styled";
 
 type CheckboxProps<FormValues extends FieldValues> = {
@@ -26,16 +25,20 @@ function Checkbox<FormValues extends FieldValues>({
   getValues,
   control,
 }: CheckboxProps<FormValues>) {
+  // @ts-ignore
   const [itemsChecked, setItemsChecked] = useState(getValues(formId));
 
   const { remove } = useFieldArray({
     control,
+    // @ts-ignore
     name: formId as ArrayPath<FormValues>,
   });
 
   const handleChange = (option: { label: string; value: string }) => {
+    // @ts-ignore
     let values = getValues(formId);
     if (!values) {
+      // @ts-ignore
       values = [] as PathValue<FormValues, Path<FormValues>>;
     }
 
@@ -56,10 +59,9 @@ function Checkbox<FormValues extends FieldValues>({
       ];
       setItemsChecked(valuesToSave as PathValue<FormValues, Path<FormValues>>);
       setValue(
+        // @ts-ignore
         formId,
-        valuesToSave as UnpackNestedValue<
-          PathValue<FormValues, Path<FormValues>>
-        >
+        valuesToSave
       );
     }
   };

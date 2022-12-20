@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro';
+import styled from "styled-components";
 
 export const Button = styled.button`
   position: relative;
@@ -7,7 +7,8 @@ export const Button = styled.button`
   cursor: pointer;
   font-size: 18px;
   transition-duration: 0.1s;
-  transition-property: background-color, color, border-color, opacity, box-shadow;
+  transition-property: background-color, color, border-color, opacity,
+    box-shadow;
   transition-timing-function: ease-out;
   outline: currentcolor none medium;
   border: 1px solid transparent;
@@ -18,9 +19,9 @@ export const Button = styled.button`
   background-color: rgb(255, 255, 255);
   color: rgb(128, 128, 128);
   border-radius: 4px;
-`
+`;
 
 export const ButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
-`
+`;

@@ -23,6 +23,7 @@ function InputText<FormValues extends FieldValues>({
     <InputWrapper>
       <Input
         value={value}
+        // @ts-ignore
         {...register(formId)}
         name={formId.toString()}
         onChange={handleChange}

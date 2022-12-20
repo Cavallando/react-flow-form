@@ -2,12 +2,11 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "./lib",
-    "jsx": "preserve",
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "jsx": "react",
+    "lib": ["dom", "dom.iterable", "es6"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true
   },
-  "include": ["./src/**/*.ts", "./src/**/*.ts", "src/styles/global.tsx"]
+  "include": ["./src/**/*.ts", "./src/**/*.tsx", "src/styles/global.tsx"]
 }

@@ -1,12 +1,6 @@
 import React, { useState } from "react";
-import {
-  FieldValues,
-  Path,
-  PathValue,
-  UnpackNestedValue,
-  UseFormReturn,
-} from "react-hook-form";
-import { RadioImageStep } from "../../../utils/steps";
+import { FieldValues, Path, PathValue, UseFormReturn } from "react-hook-form";
+import { RadioImageStep } from "../step";
 import { RadioImagesWrapper, CheckboxOption } from "./styled";
 
 type RadioImageProps<FormValues extends FieldValues> = {
@@ -25,26 +19,25 @@ function RadioImage<FormValues extends FieldValues>({
 }: RadioImageProps<FormValues>) {
   const [itemChecked, setItemChecked] = useState<
     PathValue<FormValues, Path<FormValues>>
+    // @ts-ignore
   >(getValues(formId));
 
   const handleChange = (option: RadioImageStep["values"]["0"]) => {
+    // @ts-ignore
     let valueSelected = getValues(formId);
     if (!valueSelected) {
+      // @ts-ignore
       valueSelected = {} as PathValue<FormValues, Path<FormValues>>;
     }
 
     if (valueSelected.value === option.value) {
       setItemChecked({} as PathValue<FormValues, Path<FormValues>>);
-      setValue(
-        formId,
-        {} as UnpackNestedValue<PathValue<FormValues, Path<FormValues>>>
-      );
+      // @ts-ignore
+      setValue(formId, {});
     } else {
       setItemChecked(option as PathValue<FormValues, Path<FormValues>>);
-      setValue(
-        formId,
-        option as UnpackNestedValue<PathValue<FormValues, Path<FormValues>>>
-      );
+      // @ts-ignore
+      setValue(formId, option);
     }
   };
 

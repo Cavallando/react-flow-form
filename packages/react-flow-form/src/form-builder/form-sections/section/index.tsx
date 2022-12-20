@@ -1,7 +1,7 @@
 import React from "react";
 import { SectionWrapper, Text } from "./styled";
 import { Button } from "../../form-components";
-import { StepContent } from "../../../utils/steps";
+import { StepContent } from "../../form-types/step";
 
 type SectionProps = {
   content: StepContent[];

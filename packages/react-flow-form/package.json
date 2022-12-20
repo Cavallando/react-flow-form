@@ -13,10 +13,12 @@
   "author": "Michael Cavallaro <michaelcavallaro03@gmail.com>",
   "homepage": "https://github.com/Cavallando/react-flow-form#readme",
   "license": "ISC",
-  "main": "lib/react-flow-form.js",
-  "typings": "lib/react-flow-form.d.ts",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
   "scripts": {
-    "tsc": "tsc",
+    "build": "yarn run clean && tsc",
+    "clean": "rm -rf lib",
+    "example:start": "yarn --cwd ./example run start",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "directories": {
@@ -38,7 +40,9 @@
   },
   "devDependencies": {
     "@types/react-transition-group": "^4.4.5",
-    "@types/styled-components": "^5.1.26"
+    "@types/styled-components": "^5.1.26",
+    "babel-plugin-macros": "^3.1.0",
+    "babel-plugin-styled-components": "^2.0.7"
   },
   "dependencies": {
     "react-hook-form": "^7.41.0",

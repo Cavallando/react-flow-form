@@ -1,11 +1,11 @@
-import styled from 'styled-components/macro';
+import styled from "styled-components";
 
 export const CheckboxWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-bottom: -8px;
   margin-right: -8px;
-`
+`;
 
 export const CheckboxOption = styled.label`
   width: calc(50% - 8px);
@@ -23,11 +23,11 @@ export const CheckboxOption = styled.label`
     left: 0;
     width: 100%;
     height: 100%;
-    transition: all .3s ease;
-    background-color: rgba(255,255,255, 0.1);
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.1);
     box-shadow: rgba(255, 255, 255, 0.6) 0px 0px 0px 1px inset;
     &:hover {
-      background-color: rgba(255,255,255, 0.3);
+      background-color: rgba(255, 255, 255, 0.3);
     }
   }
   input {
@@ -37,7 +37,7 @@ export const CheckboxOption = styled.label`
     display: none;
     visibility: hidden;
     &:checked + div {
-      background-color: rgba(255,255,255, 0.3);
+      background-color: rgba(255, 255, 255, 0.3);
     }
   }
   img {
@@ -48,7 +48,7 @@ export const CheckboxOption = styled.label`
   span {
     margin: 4px 5px;
     margin-top: auto;
-    color: #FFF;
+    color: #fff;
     font-size: 18px;
   }
-`
+`;
