@@ -1,6 +1,6 @@
 {
   "name": "@cav/react-flow-form",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "TypeForm styled, customizable form built with react-hook-forms",
   "keywords": [
     "react",
