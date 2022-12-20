@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { Step } from "utils/steps";
+import React from "react";
+import { useState, useEffect } from "react";
+import { Step } from "../utils/steps";
 import {
   FormBuilderWrapper,
   StepWrapper,
@@ -11,11 +12,11 @@ import { FieldValues, useForm } from "react-hook-form";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
 import { PageWrapper } from "./styled";
 
-type FormBuilderProps<FormValues extends FieldValues> = {
+export type FormBuilderProps<FormValues extends FieldValues> = {
   data: Step<FormValues>[];
 };
 
-function FormBuilder<FormValues extends FieldValues>({
+export function FormBuilder<FormValues extends FieldValues>({
   data,
 }: FormBuilderProps<FormValues>) {
   const { register, control, reset, setValue, getValues } =
@@ -88,6 +89,7 @@ function FormBuilder<FormValues extends FieldValues>({
           <SwitchTransition mode="out-in">
             <CSSTransition
               key={currentIndexForm}
+              // @ts-ignore
               addEndListener={(node, done) => {
                 node.addEventListener("transitionend", done, false);
               }}
@@ -118,5 +120,3 @@ function FormBuilder<FormValues extends FieldValues>({
     </PageWrapper>
   );
 }
-
-export default FormBuilder;

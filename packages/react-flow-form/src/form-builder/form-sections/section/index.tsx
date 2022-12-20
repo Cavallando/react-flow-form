@@ -1,6 +1,6 @@
 import React from "react";
 import { SectionWrapper, Text } from "./styled";
-import { Button } from "form-builder/form-components";
+import { Button } from "../../form-components";
 import { StepContent } from "../../../utils/steps";
 
 type SectionProps = {
